@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de senhas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <main>
+        <div class="mainBody">
+            <form>
+                <label class="inputLabel">Força da senha [3 - 50]</label>
+                <input type="range" name="strength" id="passwordStrength" class="passwordst" min="3" max="50" >
+                <label class="inputLabel">Caracteres especiais?</label>
+                <input type="checkbox" id="specialCaracter" onclick="checar()">
+                <p id="template">Template</p>
+                <input type="button" value="Gerar" id="passwordGenerate" onclick="gerarSenha()">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
