@@ -12,7 +12,8 @@
         <div class="mainBody">
             <form>
                 <label class="inputLabel">Força da senha [3 - 50]</label>
-                <input type="range" name="strength" id="passwordStrength" class="passwordst" min="3" max="50" >
+                <input type="range" name="strength" id="passwordStrength" onchange="ativar()" class="passwordst" min="3" max="50" >
+                <p id="strengthValue"></p>
                 <label class="inputLabel">Caracteres especiais?</label>
                 <input type="checkbox" id="specialCaracter" onclick="checar()">
                 <p id="template">Template</p>

@@ -3,10 +3,6 @@ function gerarSenha (){
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     const specials = "*/@#$;+-";
     size = Number(size.value)
-    console.log(size)
-    
-    
-
 
     let senhaGerada = ""
     let senha = [];
@@ -18,30 +14,44 @@ function gerarSenha (){
         senhaGerada = senhaGerada + senha[i]
     }
 
-    let isChecked = checar();
+    let isSpecialChecked = checar();
     
-    if(isChecked == 1){
+    if(isSpecialChecked == 1){
         let chance
-        senhaGerada = ""
-        let pickSpecial = 0;
 
-        for(i = 0; i < size; i++){
-            chance = Math.random() * 100;
-            chance = chance.toFixed(0);
-            pickSpecial = Math.random() * 7;
-            pickSpecial = pickSpecial.toFixed(0);
-            console.log(`Pickspecial: ${pickSpecial}`)
-            if(chance <= 25){
-                senha[i] = specials[pickSpecial];
-                console.log( i + "inserir caractere")
+        let pickSpecial = 0;
+        let hasSpecial
+        while(hasSpecial != 1){
+            senhaGerada = ""
+            for(i = 0; i < size; i++){
+                chance = Math.random() * 100;
+                chance = chance.toFixed(0);
+                pickSpecial = Math.random() * 7;
+                pickSpecial = pickSpecial.toFixed(0);
+                console.log(`Pickspecial: ${pickSpecial}`)
+                if(chance <= 25){
+                    senha[i] = specials[pickSpecial];
+                    console.log( i + "inserir caractere")
+                    hasSpecial = 1;
+                    
+                }
+                senhaGerada = senhaGerada + senha[i]
             }
-            senhaGerada = senhaGerada + senha[i]
         }
+
 
     }
     document.getElementById("template").innerHTML = senhaGerada;
 
 }
+
+function ativar(){
+    let valor = document.getElementById("passwordStrength")
+    valor = valor.value
+    document.getElementById("strengthValue").innerHTML = valor;
+
+}
+
 function checar() {
     let especial = document.getElementById("specialCaracter");
     if(especial.checked == true){
