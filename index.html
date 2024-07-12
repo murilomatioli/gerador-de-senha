@@ -15,8 +15,11 @@
                 <input type="range" name="strength" id="passwordStrength" onchange="ativar()" class="passwordst" min="3" max="50" >
                 <p id="strengthValue"></p>
                 <label class="inputLabel">Caracteres especiais?</label>
-                <input type="checkbox" id="specialCaracter" onclick="checar()">
-                <p id="template">Template</p>
+                <input type="checkbox" id="specialCaracter" onclick="checkSpecial()">
+                <label class="inputLabel">Conter números?</label>
+                <input type="checkbox" id="hasNumbers" onclick="checkNumber()">
+                <p id="template"></p>
+                <input type="number" id="manualInput">
                 <input type="button" value="Gerar" id="passwordGenerate" onclick="gerarSenha()">
             </form>
         </div>
