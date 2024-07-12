@@ -1,3 +1,14 @@
+
+window.addEventListener("DOMContentLoaded", () => {
+    let rangeInput = document.getElementById("passwordStrength")
+    let numberVisor = document.getElementById("manualInput")
+    
+    rangeInput.addEventListener('change', function() {
+        console.log("Mexeu")
+        numberVisor.value = rangeInput.value
+    })
+})
+
 function gerarSenha (){
     let size = document.getElementById("passwordStrength")
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -42,6 +53,7 @@ function gerarSenha (){
             }
         }
     }
+    
     if(isNumbersChecked == 1){
         let chance
         let hasNumber
@@ -75,20 +87,6 @@ function gerarSenha (){
         senhaGerada = senhaGerada + senha[i]
     }
     document.getElementById("template").innerHTML = senhaGerada;
-
-}
-
-function ativar(){
-    let manualSize = document.getElementById("manualInput").value
-    
-    if(manualSize){
-        valor = manualSize;
-    }else{
-        let valor = document.getElementById("passwordStrength")
-        valor = valor.value
-    }
-    document.getElementById("strengthValue").innerHTML = valor;
-
 }
 
 function checkSpecial() {
@@ -106,4 +104,10 @@ function checkNumber() {
     } else {
         return 0
     }
+}
+function copyToClipboard() {
+    let textoCopiado = document.getElementById("template").innerText;
+    navigator.clipboard.writeText(textoCopiado)
+    alert("Copiou!")
+    
 }
