@@ -1,5 +1,8 @@
 
 window.addEventListener("DOMContentLoaded", () => {
+    let copyMsg = document.getElementById("copy-msg");
+
+    copyMsg.style.visibility = "hidden"
     let rangeInput = document.getElementById("passwordStrength")
     let numberVisor = document.getElementById("manualInput")
     
@@ -8,6 +11,26 @@ window.addEventListener("DOMContentLoaded", () => {
         numberVisor.value = rangeInput.value
     })
 })
+function limitar() {
+    let inputLimiter = document.getElementById("manualInput");
+    if(inputLimiter.value > 50){
+        inputLimiter.value = 50
+    }
+    if(inputLimiter.value < 3){
+        inputLimiter.value = 3
+    }
+    
+}
+/*function teste(){
+    let numberInput = document.getElementById("manualInput")
+
+    numberInput.addEventListener("keydown", function(e) {
+        e.preventDefault()
+        if(e.key == "Enter"){
+            gerarSenha()
+        }
+    })
+}*/
 
 function gerarSenha (){
     let size = document.getElementById("passwordStrength")
@@ -106,8 +129,13 @@ function checkNumber() {
     }
 }
 function copyToClipboard() {
+    let copiedMsg = document.getElementById("copy-msg")
+    copiedMsg.style.visibility = "visible"
     let textoCopiado = document.getElementById("template").innerText;
+    function hideMsg(){
+        copiedMsg.style.visibility = "hidden"
+    }
+    setTimeout(hideMsg, 2500)
     navigator.clipboard.writeText(textoCopiado)
-    alert("Copiou!")
     
 }

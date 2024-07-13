@@ -28,6 +28,31 @@ body {
     position: absolute;
     fill: aliceblue;
 }
+#copy-msg {
+    display: flex;
+    right: 0;
+    transform: translateX(6%);
+    bottom: 80%;
+    position: absolute;
+}
+.copy:hover {
+    animation: infinite copy-animation 1.5s ease;
+}
+@keyframes copy-animation {
+    0% {
+        rotate: 0deg;
+    }    
+    33% {
+        rotate: 25deg;
+    }
+    66% {
+        rotate: -25deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+
 .passwordContainer {
     position: relative;
     border: 3px solid #161010;
